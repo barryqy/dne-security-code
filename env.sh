@@ -1,4 +1,4 @@
-export VPN_SERVER=dcloud-sjc-anyconnect.cisco.com
+export VPN_SERVER=dcloud-rtp-anyconnect.cisco.com
 ### Replace value with User field
 export VPN_USERNAME=        # <---Paste User here!!!
 ### Replace value with Password field

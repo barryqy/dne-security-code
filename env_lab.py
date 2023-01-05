@@ -69,7 +69,7 @@ elif ENVIRONMENT_IN_USE == "express":
 
     # ISE in the DevNet Express Security dCloud Pod
     ISE = {
-        "host": "198.18.133.27",
+        "host": "198.18.142.70",
         "port": 9060,
         "username": "admin",
         "password": "C1sco12345",

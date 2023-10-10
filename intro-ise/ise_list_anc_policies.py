@@ -23,11 +23,9 @@ SOFTWARE.
 """
 
 
-import sys
+import sys, os, requests
 from pathlib import Path
 from pprint import pformat
-
-import requests
 from crayons import blue, green, white
 from requests.auth import HTTPBasicAuth
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -41,18 +39,15 @@ repository_root = (here / "..").resolve()
 
 sys.path.insert(0, str(repository_root))
 
-from env_lab import ISE  # noqa
-
-
 # Disable insecure request warnings
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def get_ise_anc_policies(
-    host=ISE.get("host"),
-    port=ISE.get("port"),
-    username=ISE.get("username"),
-    password=ISE.get("password"),
+    host=os.getenv('ISE_PUBLIC'),
+    port="443",
+    username="admin",
+    password=os.getenv('SESSION_ID'),
 ):
     """Get a list of configured ISE Adaptive Network Control (ANC) policies."""
     print(blue("\n==> Getting ISE ANC policies"))
@@ -79,10 +74,10 @@ def get_ise_anc_policies(
 
 def get_ise_anc_policy_details(
     policy_id,
-    host=ISE.get("host"),
-    port=ISE.get("port"),
-    username=ISE.get("username"),
-    password=ISE.get("password"),
+    host=os.getenv('ISE_PUBLIC'),
+    port="443",
+    username="admin",
+    password=os.getenv('SESSION_ID'),
 ):
     """Retrieve the details of a configured ANC policy."""
     print(blue(f"\n==> Getting the details for the `{policy_id}` ANC policy"))

@@ -21,12 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-import json
-import sys
+import json, sys, os, requests, webexteamssdk
 from pathlib import Path
-
-import requests
-import webexteamssdk
 from crayons import blue, green, red
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
@@ -38,10 +34,6 @@ here = Path(__file__).parent.absolute()
 repository_root = (here / ".." / "..").resolve()
 
 sys.path.insert(0, str(repository_root))
-
-import env_lab  # noqa
-import env_user  # noqa
-
 
 # Disable insecure request warnings
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -74,10 +66,10 @@ headers = {
     'content-type': "application/json",
     'accept': "application/json"
     }
-username = env_lab.ISE.get("username")
-password = env_lab.ISE.get("password")
-host = env_lab.ISE.get("host")
-port = env_lab.ISE.get("port")
+username = "admin"
+password = os.getenv('SESSION_ID')
+host = os.getenv('ISE_PUBLIC')
+port = "443"
 
 
 def get_policy_ise():

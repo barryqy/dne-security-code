@@ -44,7 +44,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def get_ise_anc_policies(
-    host=os.getenv('ISE_PUBLIC'),
+    host=os.getenv('ISE_INTERNAL'),
     port="443",
     username="admin",
     password=os.getenv('SESSION_ID'),
@@ -74,7 +74,7 @@ def get_ise_anc_policies(
 
 def get_ise_anc_policy_details(
     policy_id,
-    host=os.getenv('ISE_PUBLIC'),
+    host=os.getenv('ISE_INTERNAL'),
     port="443",
     username="admin",
     password=os.getenv('SESSION_ID'),

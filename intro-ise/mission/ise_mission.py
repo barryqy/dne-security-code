@@ -68,7 +68,7 @@ headers = {
     }
 username = "admin"
 password = os.getenv('SESSION_ID')
-host = os.getenv('ISE_PUBLIC')
+host = os.getenv('ISE_INTERNAL')
 port = "443"
 
 

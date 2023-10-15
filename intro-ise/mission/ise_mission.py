@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-import json, sys, os, requests, webexteamssdk
+import json, sys, os, requests
 from pathlib import Path
 from crayons import blue, green, red
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -37,7 +37,6 @@ sys.path.insert(0, str(repository_root))
 
 # Disable insecure request warnings
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
 
 # Functions
 
@@ -74,8 +73,7 @@ port = "443"
 
 def get_policy_ise():
 
-    #TODO: Create the URL for the GET request to get the ANC policy from ISE. Hint: Make sure you pass the Auth paramenters for the API call
-    env_lab.print_missing_mission_warn(env_lab.get_line())
+    #TODO: #1 Create the URL for the GET request to get the ANC policy from ISE. Hint: Make sure you pass the Auth paramenters for the API call
     url = MISSION
 
     #Create GET Request
@@ -93,9 +91,8 @@ def get_policy_ise():
     return namelist
 
 def post_to_ise(maclist, namelist):
-    #TODO: Create the URL for the PUT request to apply the ANC policy! Hint: Make sure you pass the Auth paramenters for the API call
+    #TODO: #2 Create the URL for the PUT request to apply the ANC policy! Hint: Make sure you pass the Auth paramenters for the API call
     url = MISSION
-    env_lab.print_missing_mission_warn(env_lab.get_line())
     
     for items in maclist:
         payload = "{\r\n    \"OperationAdditionalData\": {\r\n    \"additionalData\": [{\r\n    \"name\": \"macAddress\",\r\n    \"value\": \""+ items + "\"\r\n    },\r\n    {\r\n    \"name\": \"policyName\",\r\n    \"value\": \"" + namelist + '"' + "\r\n    }]\r\n  }\r\n}"
@@ -110,21 +107,12 @@ if __name__ == "__main__":
    maclist_path = repository_root / "mission-data/mac-addresses.json"
    maclist = readmacaddr_file(maclist_path)
 
-   #TODO Call the function for getting ANC policy and store it in the policylist variable
-   env_lab.print_missing_mission_warn(env_lab.get_line())
+   #TODO #3 Call the function for getting ANC policy and store it in the policylist variable
    policylist = MISSION
 
-   #TODO call the function for applying policy to the endpoints
-   env_lab.print_missing_mission_warn(env_lab.get_line())
+   #TODO #4 Call the function for applying policy to the endpoints
+   MISSION
 
-   # # Finally, post a message to the Webex Teams Room to brag!!!
-   print(blue("\n==> Posting message to Webex Teams"))
-   teams = webexteamssdk.WebexTeamsAPI(env_user.WEBEX_TEAMS_ACCESS_TOKEN)
-   teams.messages.create(
-       roomId=env_user.WEBEX_TEAMS_ROOM_ID,
-       markdown=f"**ISE Mission completed!!!** \n\n"
-       f"I have applied quarantine policy to the rogue endpoints! \n\n"
-
-   )
-
+   # # Finally, Display Mission Completed
+   
    print(green("ISE Mission Completed!!!"))

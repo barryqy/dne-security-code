@@ -1,26 +1,8 @@
 #!/usr/bin/env python
-"""Mission - Cisco ISE
-
-Copyright (c) 2018-2019 Cisco and/or its affiliates.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+"""Mission: Quarantine rogue endpoints with ISE
+   Option challenge, if you choose to accept it
 """
+
 import json, sys, os, requests
 from pathlib import Path
 from crayons import blue, green, red
@@ -109,10 +91,11 @@ if __name__ == "__main__":
 
    #TODO #3 Call the function for getting ANC policy and store it in the policylist variable
    policylist = MISSION
-
-   #TODO #4 Call the function for applying policy to the endpoints
-   MISSION
-
-   # # Finally, Display Mission Completed
    
-   print(green("ISE Mission Completed!!!"))
+   #TODO #4 Call the function for applying policy to the endpoints
+   try:
+       MISSION
+       # # if no errors, Display Mission Completed
+       print(green("ISE Mission Completed!!!"))
+   except Exception as e:
+       print(e) # this will print the exception message if any

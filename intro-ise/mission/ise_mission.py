@@ -82,8 +82,11 @@ def post_to_ise(maclist, namelist):
         response = requests.request("PUT", url, data=payload, verify=False, headers=headers)
         if(response.status_code == 204):
             print("Done!..Applied Quarantine policy to the rogue endpoint...MAC: {0} Threat is now contained....".format(items))
+            success = True
         else:
             print("An error has ocurred with the following code %(error)s" % {'error': response.status_code})
+            success = False
+    return success
 
 if __name__ == "__main__":
    maclist_path = repository_root / "mission-data/mac-addresses.json"
@@ -93,9 +96,10 @@ if __name__ == "__main__":
    policylist = MISSION
    
    #TODO #4 Call the function for applying policy to the endpoints
-   try:
-       MISSION
-       # # if no errors, Display Mission Completed
-       print(green("ISE Mission Completed!!!"))
-   except Exception as e:
-       print(e) # this will print the exception message if any
+   result = MISSION
+   
+   # # if no errors, Display Mission Completed
+   if result:
+     print(green("ISE Mission Completed!!!"))
+   else:
+     print(red("Please check the errors above and troubleshoot"))

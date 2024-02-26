@@ -3,7 +3,7 @@
 export SESSION_ID=""          # <---Paste SESSION ID here!!!
 ########################################################
 ### VPN Credentials
-export VPN_SERVER="dcloud-lon-anyconnect.cisco.com"
+export VPN_SERVER="dcloud-rtp-anyconnect.cisco.com" # <---Make sure the Datacenter is correct (RTP, SJC, etc)!!!
 ### Replace value with User field
 export VPN_USERNAME=""        # <---Paste User here!!!
 ### Replace value with Password field

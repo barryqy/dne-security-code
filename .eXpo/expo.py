@@ -236,8 +236,8 @@ class CiscoExpoApi:
                     bashrc_file.write(f"export ISE_INTERNAL={private_address}\n")
                     bashrc_file.write(f"export POD_UID={uid}\n")
                     bashrc_file.write(f"export AD1_LINK='{ad1_link}'\n")
-                print("\n🎉 Success!")
-                print(f"\n⚠️ You have 3 hours before the dCloud pod timeout.")
+                print("\n🎉 Success! All set and ready to roll!")
+                print(f"\n⚠️ You have 3 hours before the dCloud pod timeout. \n")
             else:
                 print(f".bashrc file not found at {bashrc_path}")
         except (KeyError, IndexError) as e:

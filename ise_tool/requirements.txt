@@ -7,7 +7,7 @@ argparse        # CLI commands and options
 bs4             # HTML parsing
 ciscoisesdk     # ISE Python REST API wrapper
 faker           # generate fake users, MACs, IPs
-oracledb        # Oracle DB thin client for ISE Data Connect queries
+
 pandas          # import and manipulate data in Pandas DataFrames
 PyYAML          # YAML
 requests        # synchronous HTTP/S

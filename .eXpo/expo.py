@@ -236,6 +236,12 @@ class CiscoExpoApi:
                     bashrc_file.write(f"export ISE_INTERNAL={private_address}\n")
                     bashrc_file.write(f"export POD_UID={uid}\n")
                     bashrc_file.write(f"export AD1_LINK='{ad1_link}'\n")
+                    bashrc_file.write(f"export ISE_PPAN={private_address}\n")
+                    bashrc_file.write(f"export ISE_PMNT={private_address}\n")
+                    bashrc_file.write(f"export ISE_REST_USERNAME='admin' \n")
+                    bashrc_file.write(f"\nexport ISE_REST_PASSWORD={dcloud_session_id}\n")
+                    bashrc_file.write(f"export ISE_CERT_VERIFY=false \n")
+
                 print("\n🎉 Success! All set and ready to roll!")
                 print(f"\n⚠️ You have 3 hours before the dCloud pod timeout. \n")
             else:

@@ -147,7 +147,7 @@ class CiscoExpoApi:
                 return(email)
                 break
             else:
-                print("Invalid email address. Please try again.")
+                print("Invalid email address. Please try again. \n NOTE: No personal email (Gmail, Outlook, and etc) address allowed")
 
     def choose_datacenter(self):
         # Asks the user to choose a datacenter and returns the corresponding uid.
